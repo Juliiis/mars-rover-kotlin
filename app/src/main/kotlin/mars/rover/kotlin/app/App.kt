@@ -3,12 +3,44 @@
  */
 package mars.rover.kotlin.app
 
-import mars.rover.kotlin.utilities.StringUtils
+object Mars {
+    var position = Coordinate(0,0)
+    var direction = "South"
+    fun forward(){
+        position.x += 1
+    }
+    fun backward(){}
+    fun left(){
+        if (direction == "South"){
+            direction = "East"
+        } else if (direction == "East"){
+            direction = "North"
+        } else if (direction == "North"){
+            direction = "West"
+        } else direction = "South"
+    }
+    fun right(){
+        if (direction == "South"){
+            direction = "West"
+        } else if (direction == "West"){
+            direction = "North"
+        } else if (direction == "North"){
+            direction = "East"
+        } else direction = "South"
+    }
+}
 
-import org.apache.commons.text.WordUtils
+fun main(){
+    Mars.left()
+    println(Mars.direction)
+    Mars.right()
+    println(Mars.direction)
+}
 
-fun main() {
-    val tokens = StringUtils.split(MessageUtils.getMessage())
-    val result = StringUtils.join(tokens)
-    println(WordUtils.capitalize(result))
+class Coordinate(x: Int, y: Int) {
+    var x = x
+    var y = y
+   override fun toString(): String{
+       return "${x}, ${y}"
+    }
 }
