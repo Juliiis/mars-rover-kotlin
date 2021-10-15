@@ -10,8 +10,13 @@ class Mars constructor(x: Int, y: Int, direction: String){
         position.x += 1
     }
     fun backward(){
-        position.y += 1
-        position.x += 1
+        if (direction == "West"){
+            position.y += 1
+            position.x += 0
+        } else if (direction == "North"){
+            position.y += 0
+            position.x += 1
+        }
     }
     fun left(){
         if (direction == "South"){
