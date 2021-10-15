@@ -3,14 +3,14 @@
  */
 package mars.rover.kotlin.app
 
-class Mars constructor(x: Int, y: Int){
+class Mars constructor(x: Int, y: Int, direction: String){
     var position = Coordinate(x, y)
-    var direction = "South"
+    var direction = direction
     fun forward(){
         position.x += 1
     }
     fun backward(){
-        position.y -= 1
+        position.y += 1
     }
     fun left(){
         if (direction == "South"){
@@ -33,8 +33,8 @@ class Mars constructor(x: Int, y: Int){
 }
 
 fun main(){
-    val mars = Mars(0, 0) //creame un objeto a partir de esta clase
-    val mars2 = Mars(1, 3) // otro objeto
+    val mars = Mars(0, 0, "North") //creame un objeto a partir de esta clase
+    val mars2 = Mars(direction = "West", x = 1, y = 3) // otro objeto
     mars.backward()
     mars2.backward()
     mars2.backward()

@@ -5,13 +5,15 @@ import org.junit.jupiter.api.Test
 
 internal class MarsTest {
    @Test fun turnLeft(){
-        Mars.left()
-        var actualDireccion = Mars.direction
-        assertEquals("East", actualDireccion)
+        var mars = Mars(0,0, "East")
+        mars.left()
+        var actualDireccion = mars.direction
+        assertEquals("North", actualDireccion)
     }
     @Test fun turnBackward(){
-        Mars.backward()
-        var actualColumn = Mars.position.y
-        assertEquals(-1, actualColumn)
+        var mars = Mars(0, 0, "West")
+        mars.backward() // 0, 1
+        var actualColumn = mars.position.y
+        assertEquals(1, actualColumn)
     }
 }
