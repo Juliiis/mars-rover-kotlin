@@ -9,7 +9,9 @@ object Mars {
     fun forward(){
         position.x += 1
     }
-    fun backward(){}
+    fun backward(){
+        position.x -= 1
+    }
     fun left(){
         if (direction == "South"){
             direction = "East"
