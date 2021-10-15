@@ -9,4 +9,9 @@ internal class MarsTest {
         var actualDireccion = Mars.direction
         assertEquals("East", actualDireccion)
     }
+    @Test fun turnBackward(){
+        Mars.backward()
+        var actualColumn = Mars.position.y
+        assertEquals(-1, actualColumn)
+    }
 }
